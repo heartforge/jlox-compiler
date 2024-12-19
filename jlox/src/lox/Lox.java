@@ -1,8 +1,11 @@
+package lox;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.List;
 
 public class Lox {
@@ -20,7 +23,7 @@ public class Lox {
     }
 
     private static void runFile(String path) throws IOException {
-        byte[] bytes = Files.readAllBytes(Path.get(path));
+        byte[] bytes = Files.readAllBytes(Path.of(path));
         run(new String(bytes, Charset.defaultCharset()));
 
         // Indicate an error in the exit code.
@@ -31,7 +34,7 @@ public class Lox {
         InputStreamReader input = new InputStreamReader(System.in);
         BufferedReader reader = new BufferedReader(input);
 
-        for (;;) {
+        for (; ; ) {
             System.out.println("> ");
             String line = reader.readLine();
             if (line == null) break;
@@ -51,7 +54,7 @@ public class Lox {
     }
 
     // ERROR HANDLING
-    static void error (int line, String message) {
+    static void error(int line, String message) {
         report(line, "", message);
     }
 
