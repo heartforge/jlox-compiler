@@ -214,8 +214,6 @@ public class Scanner {
                     Lox.error(line, "Unexpected character.");
                 }
 
-                // Unrecognized lexeme
-                Lox.error(line, "Unexpected character.");
                 break;
         }
 
