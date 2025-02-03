@@ -32,7 +32,9 @@ public class Parser {
     }
 
     /*
-    declaration -> varDecl
+    declaration -> classDecl
+                | funDecl
+                | varDecl
                 | statement ;
      */
     private Stmt declaration() {
